@@ -26,4 +26,4 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));5
+ReactDOM.render(<App />, document.getElementById("root"));
