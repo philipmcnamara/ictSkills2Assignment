@@ -1,3 +1,4 @@
+import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -13,6 +14,7 @@ const App = () => {
       <BrowserRouter>
           <SiteHeader />      {/* New Header  */}
       <Switch>
+        <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
         <Route path="/reviews/:id" component={MovieReviewPage} />
         <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
         <Route path="/movies/:id" component={MoviePage} />
