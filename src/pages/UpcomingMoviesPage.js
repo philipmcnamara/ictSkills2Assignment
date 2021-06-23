@@ -5,7 +5,7 @@ import Spinner from '../components/spinner';
 import {getNewMovies} from '../api/tmdb-api';
 import AddPlaylistIcon from '../components/cardIcons/playlistAdd'
 
-const HomePage = (props) => {
+const UpcomingPage = (props) => {
   const {  data, error, isLoading, isError }  = useQuery('upcoming', getNewMovies)
 
   if (isLoading) {
@@ -33,4 +33,4 @@ const HomePage = (props) => {
 );
 };
 
-export default HomePage;
+export default UpcomingPage;
