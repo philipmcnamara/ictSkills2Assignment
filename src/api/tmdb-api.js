@@ -56,7 +56,7 @@ export const getMovieImages = async ({queryKey}) => {
       });
   };
 
-  export const getNewMovies = async () => {
+  export const getUpcomingMovies = async () => {
     const response = await fetch(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
     );
