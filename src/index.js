@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import TopMovies from "./pages/topMoviePage";
+import NowPlaying from "./pages/nowPlaying";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; 
 import SiteHeader from './components/siteHeader';
@@ -33,6 +34,7 @@ const App = () => {
             {" "}
             <Switch>
             <Route exact path="/movies/topmovies" component={TopMovies} />
+            <Route exact path="/movies/nowplaying" component={NowPlaying} />
             <Route exact path="/movies/playlist" component={MustWatchMovies} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
