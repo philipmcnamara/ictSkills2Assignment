@@ -1,36 +1,33 @@
 import React from "react";
-import PageTemplate from "../components/templateMovieListPage";
+import PageTemplate from '../components/templateMovieListPage';
+import { getTopMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import {getTopMovies} from '../api/tmdb-api';
-import AddToFavoritesIcon from '../components/cardIcons/addToFavorites'
+import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
 
 const TopMovies = (props) => {
-  const {  data, error, isLoading, isError }  = useQuery('discover', getTopMovies)
-
+  // useQuery used to cache upcoming movies page data
+  const { data, error, isLoading, isError } = useQuery('upcoming', getTopMovies)
   if (isLoading) {
     return <Spinner />
   }
-
   if (isError) {
     return <h1>{error.message}</h1>
-  }  
-  const movies = data.results;
+  }
 
+  const movies = data.results;
   // Redundant, but necessary to avoid app crashing.
-  const favorites = movies.filter(m => m.favorite)
-  localStorage.setItem('favorites', JSON.stringify(favorites))
-  const addToFavorites = (movieId) => true 
+  const playlist = movies.filter(m => m.playlist)
+  localStorage.setItem('playlist', JSON.stringify(playlist))
 
   return (
     <PageTemplate
-      title="Top Movies"
+      title='Top Movies'
       movies={movies}
       action={(movie) => {
-        return <AddToFavoritesIcon movie={movie} />
+        return <AddToPlaylistIcon movie={movie} />
       }}
     />
-);
+  );
 };
-
 export default TopMovies;

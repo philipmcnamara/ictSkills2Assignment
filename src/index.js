@@ -3,8 +3,8 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
-import HomePage from "./pages/homePage";
 import TopMovies from "./pages/topMoviePage";
+import HomePage from "./pages/homePage";
 import NowPlaying from "./pages/nowPlaying";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; 
@@ -34,6 +34,7 @@ const App = () => {
             {" "}
             <Switch>
             <Route exact path="/movies/topmovies" component={TopMovies} />
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/movies/nowplaying" component={NowPlaying} />
             <Route exact path="/movies/playlist" component={MustWatchMovies} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
@@ -41,7 +42,6 @@ const App = () => {
             <Route path="/reviews/:id" component={MovieReviewPage} />
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
             <Route path="/movies/:id" component={MoviePage} />
-            <Route exact path="/" component={HomePage} />
             <Redirect from="*" to="/" />
             </Switch>
         </MoviesContextProvider>
