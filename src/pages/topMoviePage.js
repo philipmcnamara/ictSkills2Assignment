@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage';
 import { getTopMovies } from "../api/tmdb-api";
 import { useQuery } from 'react-query';
 import Spinner from '../components/spinner';
-import AddToPlaylistIcon from "../components/cardIcons/addToPlaylist";
+import SearchIcon from "../components/cardIcons/findSimilar";
 
 const TopMovies = (props) => {
   // useQuery used to cache upcoming movies page data
@@ -25,7 +25,7 @@ const TopMovies = (props) => {
       title='Top Movies'
       movies={movies}
       action={(movie) => {
-        return <AddToPlaylistIcon movie={movie} />
+        return <SearchIcon movie={movie} />
       }}
     />
   );

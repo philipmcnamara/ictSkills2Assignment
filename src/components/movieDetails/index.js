@@ -9,7 +9,10 @@ import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import MovieReviews from "../movieReviews"
+import MovieReviews from "../movieReviews";
+import MovieCredits from "../movieCredits"
+import Button from '@material-ui/core/Button';
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -78,6 +81,19 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         ))}
       </Paper>
 
+      <Button variant="contained" color="default" onClick={MovieCredits}>
+       <Link
+          to={{
+            pathname: `/credits/${movie.id}`,
+            state: {
+              movie: movie,
+            },
+          }}
+        >
+          Click Here to View Credits
+        </Link>
+      </Button>
+
       <Fab
         color="secondary"
         variant="extended"
@@ -87,6 +103,7 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <NavigationIcon />
         Reviews
       </Fab>
+
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
