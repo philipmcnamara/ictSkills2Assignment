@@ -3,8 +3,8 @@ import React from "react";
 const MovieCredit =  ({ credit }) => {
   return (
     <>
-      <p>Credit Name: {credit.id} </p>
-      <p>{credit.cast} </p>
+    <h1>Credits</h1>
+      <p>{credit} </p>
     </>
   );
 };
