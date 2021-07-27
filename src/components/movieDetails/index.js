@@ -10,9 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import MovieReviews from "../movieReviews";
-import MovieCredits from "../movieCredits"
-import Button from '@material-ui/core/Button';
-import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MovieDetails = ({ movie }) => {  // Don't miss this!
   const classes = useStyles();
+
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -80,19 +79,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
           </li>
         ))}
       </Paper>
-
-      <Button variant="contained" color="default" onClick={MovieCredits}>
-       <Link
-          to={{
-            pathname: `/credits/${movie.id}`,
-            state: {
-              movie: movie,
-            },
-          }}
-        >
-          Click Here to View Credits
-        </Link>
-      </Button>
 
       <Fab
         color="secondary"

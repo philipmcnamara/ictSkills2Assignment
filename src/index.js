@@ -1,11 +1,13 @@
 import UpcomingMoviesPage from "./pages/UpcomingMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
+import MovieCreditPage from "./pages/moviecreditsPage";
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import TopMovies from "./pages/topMoviePage";
 import HomePage from "./pages/homePage";
 import NowPlaying from "./pages/nowPlaying";
+import TV from "./pages/TVHome";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage"; 
 import SiteHeader from './components/siteHeader';
@@ -14,7 +16,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import MoviesContextProvider from "./contexts/moviesContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import MustWatchMovies from "./pages/mustWatchMovies"; // NEW
-import MovieCreditPage from "./pages/moviecreditsPage";
+
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,6 +39,7 @@ const App = () => {
             <Route exact path="/movies/topmovies" component={TopMovies} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/movies/nowplaying" component={NowPlaying} />
+            <Route exact path="/movies/TV" component={TV} />
             <Route exact path="/movies/playlist" component={MustWatchMovies} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
             <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
