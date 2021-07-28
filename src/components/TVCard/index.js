@@ -7,14 +7,10 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import PlaylistAddIcon from "@material-ui/icons/PlaylistAdd";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-import StarRateIcon from "@material-ui/icons/StarRate";
-import IconButton from "@material-ui/core/IconButton";
+
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
-import Avatar from "@material-ui/core/Avatar";
 import img from '../../images/film-poster-placeholder.png';
 import { TVsContext } from "../../contexts/TVsContext";
 
@@ -28,40 +24,16 @@ const useStyles = makeStyles({
 
 export default function TVCard({ TV, action }) {
   const classes = useStyles();
-  const { favorites, addToFavorites } = useContext(TVsContext);
-  const { playlist, addToPlaylist } = useContext(TVsContext);
 
-  if (favorites.find((id) => id === TV.id)) {
-    TV.favorite = true;
-  } else {
-    TV.favorite = false
-  }
-
-  const handleAddToFavorite = (e) => {
-    e.preventDefault();
-    addToFavorites(TV);
-  };
-
-  const handleAddToPlaylist = (e) => {
-    e.preventDefault();
-    addToPlaylist(TV);
-  };
 
   return (
     <Card className={classes.card}>
       <CardHeader
       className={classes.header}
-      avatar={
-        TV.favorite ? (
-          <Avatar className={classes.avatar}>
-            <FavoriteIcon />
 
-          </Avatar>
-        ) : null
-      }
       title={
         <Typography variant="h5" component="p">
-          {TV.title}{" "}
+          {TV.original_name}{" "}
         </Typography>
       }
     />
@@ -78,13 +50,7 @@ export default function TVCard({ TV, action }) {
           <Grid item xs={6}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
-              {TV.release_date}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {TV.vote_average}{" "}
+              {TV.first_air_date}
             </Typography>
           </Grid>
         </Grid>
