@@ -14,20 +14,22 @@ export default function MovieCredits({ movie }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-            <Button variant="contained" color="default" onClick={MovieCredits}>
-              <Link
-                to={{
-                  pathname: `/credits/${movie.id}`,
-                  state: {
-                    movie: movie,
-                    credits: credits,
-                  },
-                }}
-              >
-                Click Here to View Credits
-              </Link>
-            </Button>
+  console.log(credits)
 
-  );
+  return (
+    <Button variant="contained" color="default" onClick={MovieCredits}>
+      <Link
+        to={{
+          pathname: `/credits/${movie.id}`,
+          state: {
+            movie: movie,
+            credits: credits,
+          },
+        }}
+      >
+        Click Here to View Credits
+      </Link>
+    </Button>
+
+);
 }

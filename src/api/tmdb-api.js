@@ -100,7 +100,7 @@ export const getMovieImages = async ({queryKey}) => {
   
   export const getMovieCredits = (id) => {
     return fetch(
-      `https://api.themoviedb.org/3/credit/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
       .then((res) => res.json())
       .then((json) => {
