@@ -98,14 +98,18 @@ export const getMovieImages = async ({queryKey}) => {
   };
 
   
-  export const getMovieCredits = (id) => {
-    return fetch(
+
+
+  export const getMovieCredits = async (id) => {
+    // eslint-disable-next-line no-unused-vars
+
+    const response = await fetch(
       `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
     )
-      .then((res) => res.json())
-      .then((json) => {
-        return json.results;
-      });
+    if (!response.ok) {
+      throw new Error(response.json().message);
+    }
+    return response.json();
   };
 
 
