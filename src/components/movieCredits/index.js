@@ -1,23 +1,58 @@
 import React, { useEffect, useState }  from "react";
 import { getMovieCredits } from "../../api/tmdb-api";
-import MovieCredit from "../movieCredit";
 import Grid from "@material-ui/core/Grid";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
+import Typography from "@material-ui/core/Typography";
 
+const useStyles = makeStyles({
+  card: { maxWidth: 345 },
+  media: { height: 500 },
+  avatar: {
+    backgroundColor: "rgb(255, 0, 0)",
+  },
+});
 
 export default function MovieCredits({ movie }) {
-  const [cast, setCast] = useState([]);
+  const classes = useStyles();
+  const [stars, setStars] = useState([]);
   useEffect(() => {
     getMovieCredits(movie.id).then((castAndCrew) => {
-      setCast(castAndCrew.cast);
+      setStars(castAndCrew.cast);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(cast)
-
-  let castCards = cast.map((m) => (
-    <Grid key={m.id} item xs={12} sm={6} md={4} lg={3} xl={2}>
-      <MovieCredit key={m.id} star={m}  />
-    </Grid>
+  console.log(stars[1]);
+  console.log(stars[2]);
+  const myJSON = JSON.stringify(stars[0]);
+  let castCards = stars.map((m) => (
+    
+<Card className={classes.card}>
+      <CardHeader
+      className={classes.header}
+      title={
+        <Typography variant="h5" component="p">
+          {m.name}{" "}
+        </Typography>
+      }
+    />
+      <CardContent>
+        <Grid container>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              {m.character}
+            </Typography>
+          </Grid>
+          <Grid item xs={6}>
+            <Typography variant="h6" component="p">
+              {"  "} {stars.profile_path}{" "}
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
   ));
   return castCards;
   
