@@ -93,6 +93,10 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <MovieReviews movie={movie} />
       </Drawer>
+
+      <Typography variant="h2" component="h3">
+        Cast 
+      </Typography>
     </>
   );
 };
