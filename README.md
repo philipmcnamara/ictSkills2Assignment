@@ -49,16 +49,19 @@ https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&p
 
 ### Component catalogue.
 
-storybook.png is updated to contian this 
+ ![storybook](https://user-images.githubusercontent.com/59388884/130355873-9ef79de4-6411-4cc1-83cf-8f2bf171f175.png)
+
 
 ### UI Design.
 
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
+![Details Cast](https://user-images.githubusercontent.com/59388884/130355841-6a3c7c38-7fa2-4c53-9ad9-0742d2c4e042.PNG)
 
-![][view]
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+![MustWatchPlaylist](https://user-images.githubusercontent.com/59388884/130355893-1db531a9-7cc0-4653-9a2e-192ac88336bc.PNG)
 
-### Routing.
+![TopMovies](https://user-images.githubusercontent.com/59388884/130355899-e812a03c-83fc-481d-a981-c70c2e1da768.PNG)
+
+![UpComingMovies](https://user-images.githubusercontent.com/59388884/130355902-0644dd09-23e8-4cf7-ad74-13ea42f1c32b.PNG)
+
 
 ...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
 
