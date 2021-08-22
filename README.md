@@ -4,13 +4,9 @@ Name: Philip McNamara
 
 ## Overview.
 
-...... State the app concept and objectives. If it's the Movies Fan app extension, only state the additional objectives .........
-
 The objectives was to add a few additional pages such as , upcoming movies, Top rated movies, now playing in cinemas along witha TV page and addition of Cast into into the details pages. 
 
 
-...... A bullet-point list of user features. If it's the Movies Fan app extension, only list new/modified features...... 
- 
  + Upcoming Movies
  + Top Rated Movies
  + Now Playing in Cinemas
