@@ -36,13 +36,13 @@ const App = () => {
         <MoviesContextProvider>
             {" "}
             <Switch>
+            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
             <Route exact path="/movies/topmovies" component={TopMovies} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/movies/nowplaying" component={NowPlaying} />
             <Route exact path="/TV" component={TV} />
             <Route exact path="/movies/playlist" component={MustWatchMovies} />
             <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-            <Route exact path="/movies/upcoming" component={UpcomingMoviesPage} />
             <Route path="/credits/:id" component={MovieCreditPage} />
             <Route path="/reviews/:id" component={MovieReviewPage} />
             <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />

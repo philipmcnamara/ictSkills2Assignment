@@ -97,9 +97,6 @@ export const getMovieImages = async ({queryKey}) => {
       });
   };
 
-  
-
-
   export const getMovieCredits = async (id) => {
     // eslint-disable-next-line no-unused-vars
 
@@ -112,8 +109,6 @@ export const getMovieImages = async ({queryKey}) => {
     return response.json();
   };
 
-
-  
   export const getTV = async () => {
     const response = await fetch(
       `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`

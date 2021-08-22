@@ -8,11 +8,9 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import img from '../../images/film-poster-placeholder.png';
-import { TVsContext } from "../../contexts/TVsContext";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
@@ -24,16 +22,23 @@ const useStyles = makeStyles({
 
 export default function TVCard({ TV, action }) {
   const classes = useStyles();
+  const [TV, setTV] = useState([]);
+  useEffect(() => {
+    getTVShow(TV.id).then((TVName) => {
+      setCast(TVName.name);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  console.log(TV[1]);
 
-
-  return (
+  let TVCards = TV.map((m) => (
     <Card className={classes.card}>
       <CardHeader
       className={classes.header}
 
       title={
         <Typography variant="h5" component="p">
-          {TV.original_name}{" "}
+          {m.original_name}{" "}
         </Typography>
       }
     />
@@ -41,7 +46,7 @@ export default function TVCard({ TV, action }) {
         className={classes.media}
         image={
             TV.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${TV.poster_path}`
+            ? `https://image.tmdb.org/t/p/w500/${m.poster_path}`
             : img
         }
       />
@@ -58,7 +63,7 @@ export default function TVCard({ TV, action }) {
 
       <CardActions disableSpacing>
       {action(TV)}
-        <Link to={`/TV/${TV.id}`}>
+        <Link to={`/TV/${m.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Info ...
           </Button>
@@ -66,5 +71,8 @@ export default function TVCard({ TV, action }) {
       </CardActions>
       
     </Card>
-  );
-}
+  ));
+
+  return TVCards;
+
+};
